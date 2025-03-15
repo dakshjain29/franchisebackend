@@ -13,7 +13,7 @@ app.use(fileuploader());
 
 //URL Handler
 app.get("/fun",function(req,resp)
-  {
+  {    
     //var dir=__dirname;
     var dir=process.cwd();
 
@@ -131,7 +131,7 @@ var dbConfig={
   database: "bdky7jufzyf77kd4slz6"
 };
 
-var dbCon=mysql.createConnection(dbConfig);
+var dbCon=mysql.createConnection(dbConfig);//dbCon is an object
 dbCon.connect(function(jasoos){
     if(jasoos==null)
         console.log("Connected Successfulllyyy...");
