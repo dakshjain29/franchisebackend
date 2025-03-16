@@ -56,4 +56,15 @@ function FetchSalesData(req,resp){
     })
 
 }
-module.exports={DoLoginFranchise,DoChnagepwd,doSaveSales,FetchSalesData}
+function FetchSalesCharts(req,resp){
+    console.log(req.body.email)
+    FranchiseSalesRef.find({email:req.body.email}).then((document)=>{
+        console.log(document)
+        resp.json({appdata:document,status:true})
+    }).catch((err)=>{
+        console.log(err.message)
+        resp.json({msg: err.message,status:false})
+    })
+
+}
+module.exports={DoLoginFranchise,DoChnagepwd,doSaveSales,FetchSalesData,FetchSalesCharts}

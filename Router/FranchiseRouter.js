@@ -7,5 +7,6 @@ FranchRouter.post("/loginFranchise",obj.DoLoginFranchise);
 FranchRouter.post("/changepwd",obj.DoChnagepwd)
 FranchRouter.post("/saveSales",obj.doSaveSales)
 FranchRouter.post("/fetchSales",obj.FetchSalesData)
+FranchRouter.post("/fetchSaleChart",obj.FetchSalesCharts)
 
 module.exports=FranchRouter
