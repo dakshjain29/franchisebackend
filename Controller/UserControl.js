@@ -14,14 +14,14 @@ cloudinary.config({
 
 function dosaveUserGet(req,resp)
 {
-    console.log(req.query);
+    // console.log(req.query);
     var userobj=new UsercolRef(req.query);
 
     userobj.save().then((document)=>{
         //resp.send(document);
         resp.json({doc:document,status:true,msg:"saved successfully"})
     }).catch((err)=>{
-        console.log(err.message);
+        // console.log(err.message);
         // resp.send(err.message);
         resp.json({status:false,msg:err.message})
     })
@@ -37,7 +37,7 @@ function doSaveUserWithPost(req,resp)
                 resp.json({doc:document,status:true,msg:"Saved Successfully with post"});
 
         }).catch((err)=>{
-                console.log(err.message);
+                // console.log(err.message);
                 //resp.send(err.message)
                 resp.json({status:false,msg:err.message});
 

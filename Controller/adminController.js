@@ -16,10 +16,10 @@ var FranchiseCredRef=getFranchiseCredModel()
 function FetchAppliData(req,resp){
     
     AUsercolRef.find().then((document)=>{
-        console.log(document)
+        // console.log(document)
         resp.json({appdata:document,status:true})
     }).catch((err)=>{
-        console.log(err.message)
+        // console.log(err.message)
         resp.json({msg: err.message,status:false})
     })
 
@@ -85,7 +85,7 @@ function doAcceptApplicant(req, resp) {
     frcredObj.save().then((document)=>{
         resp.json({msg:"Franchise cred saved",status:true,pwd:pwd})
     }).catch((err)=>{
-        console.log(err.message)
+        // console.log(err.message)
         resp.json({msg:err.message,status:false})
     })
   }
