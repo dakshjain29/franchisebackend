@@ -2,7 +2,6 @@ var jwt=require("jsonwebtoken")
 
 function ValidateTokenjs(req,resp,next)
 {
-    console.log("hiiiiii")
     const fulltoken=req.headers['authorization'];
 
     var ary=fulltoken.split(" ")
@@ -19,7 +18,7 @@ function ValidateTokenjs(req,resp,next)
             next()
         }
         else{
-            resp.json({status:false,msg:"**Soryy**"})
+            resp.json({status:false,msg:"TOKEN EXPIRED"})
         }
     }
     catch(err){

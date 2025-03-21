@@ -4,13 +4,15 @@ var {getFranchiseCredModel}=require("../Model/FranchiseCredModel")
 var FranchiseCredRef=getFranchiseCredModel() 
 var{getFranchiseSalesModel}=require("../Model/FranchiseSales")
 var FranchiseSalesRef=getFranchiseSalesModel()
-
+var jwt=require("jsonwebtoken");
 function DoLoginFranchise(req,resp){
     // console.log(req.body.fremail)
     // console.log(req.body.pass)
     FranchiseCredRef.findOne({email:req.body.fremail , password: req.body.pass}).then((document)=>{
         // console.log(document)
-        resp.json({appdata:document,status:true})
+        jwtoken=jwt.sign({uid:req.body.email},process.env.SEC_KEY,{expiresIn:"10m"});
+        resp.json({appdata:document,status:true,token:jwtoken})
+
     }).catch((err)=>{
         // console.log(err.message)
         resp.json({msg: err.message,status:false})
