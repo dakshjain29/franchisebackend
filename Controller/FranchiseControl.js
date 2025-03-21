@@ -10,7 +10,7 @@ function DoLoginFranchise(req,resp){
     // console.log(req.body.pass)
     FranchiseCredRef.findOne({email:req.body.fremail , password: req.body.pass}).then((document)=>{
         // console.log(document)
-        jwtoken=jwt.sign({uid:req.body.email},process.env.SEC_KEY,{expiresIn:"10m"});
+        jwtoken=jwt.sign({},process.env.SEC_KEY,{expiresIn:"10m"});
         resp.json({appdata:document,status:true,token:jwtoken})
 
     }).catch((err)=>{
